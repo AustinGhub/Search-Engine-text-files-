@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Page</title>
+
+    <style>
+        body {
+            padding: 10px;
+            background-color: rgb(138, 36, 6);
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "Monaco", monospace;
+            color: rgb(0, 0, 0);
+        }
+
+        p {
+            font-family: sans-serif;
+            color: darkolivegreen;
+        }
+
+        ul {
+            text-align: left;
+        }
+
+        input[type=text] {
+            box-shadow: 0 2.35px 5px grey;
+            width: 250px;
+           /* box-sizing: border-box;*/
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .container4 {
+            /* remember to set a width */
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /*input[type=text]:focus {
+            width: 50%;
+        }*/
+    </style>
+
+</head>
+<body>
+    <h1>Cool Guy Search</h1>
+
+    <img src = https://thumbs.dreamstime.com/z/cool-guy-shades-beard-80178910.jpg>
+
+
+    <form action="search">
+        <input type="text" name="query" value="{{query}}" placeholder="Search the Corpus . . .">
+        <!-- <input type="submit" value="Submit">-->
+    </form>
+    <div class=container4>
+        <ul>
+            {% for score, filename in searchResults%}
+            <li>{{score|round(3)}} - {{filename}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
